@@ -62,7 +62,6 @@ app.add_middleware(
 async def predict_maintenance(vehicle_data: VehicleData):
    
     try:
-        # Get predictor from global dict
         predictor = predictor_instance.get("predictor")
         
         if predictor is None:
@@ -98,7 +97,7 @@ async def predict_maintenance(vehicle_data: VehicleData):
 async def root():
     """Root endpoint - API welcome message"""
     return {
-        "message": "🚗 EV Predictive Maintenance API",
+        "message": "EV Predictive Maintenance",
         "version": MODEL_VERSION,
         "status": "running",
         "docs": "/docs",
@@ -141,8 +140,8 @@ async def get_model_info():
             "thermal_predictor": str(type(predictor.thermal_model).__name__)
         },
         "thresholds": {
-            "soh_critical": 0.80,
-            "soh_warning": 0.85,
+            "soh_critical": 0.60,
+            "soh_warning": 0.80,
             "rul_urgent": 100,
             "thermal_danger": 0.70
         }
