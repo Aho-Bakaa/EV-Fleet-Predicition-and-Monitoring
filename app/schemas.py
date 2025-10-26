@@ -2,10 +2,9 @@ from pydantic import BaseModel, Field
 from typing import Optional, List
 
 class VehicleData(BaseModel):
-    """
-    Complete input schema for EV fleet data
-    All 76 features from your preprocessed dataset
-    """
+  
+    #Complete input schema for EV fleet data
+    
     Vehicle_ID: str = Field(..., example="VEH_0001")
     SOC: float = Field(..., example=0.75)
     Charge_Cycles: float = Field(..., example=450.0)
