@@ -144,7 +144,7 @@ class EVMaintenancePredictor:
             return {
                 'level': 'URGENT',
                 'priority': 2,
-                'message': f'⚠️ Battery replacement needed soon ({rul} cycles remaining)',
+                'message': f' Battery replacement needed soon ({rul} cycles remaining)',
                 'actions': [
                     'Schedule replacement within 2 weeks',
                     'Monitor SOH daily',
@@ -155,7 +155,7 @@ class EVMaintenancePredictor:
             return {
                 'level': 'WARNING',
                 'priority': 3,
-                'message': f'⚡ Battery degradation detected (SOH: {soh:.1%})',
+                'message': f' Battery degradation detected (SOH: {soh:.1%})',
                 'actions': [
                     'Schedule inspection within 1 month',
                     'Monitor performance',
@@ -165,7 +165,7 @@ class EVMaintenancePredictor:
         return {
             'level': 'OK',
             'priority': 4,
-            'message': '✅ Battery healthy',
+            'message': ' Battery healthy',
             'actions': [],
             'color': 'green'
         }
