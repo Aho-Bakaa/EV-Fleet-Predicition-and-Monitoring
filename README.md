@@ -7,6 +7,7 @@ Built with: FastAPI, Python 3.9, joblib, Docker
 Models: SOH (State of Health), Battery RUL (Remaining Useful Life), Thermal Runaway Risk
 
 Main Features
+
 Robust REST API for vehicle data prediction
 
 Scalable structure for containerized/cloud deployment
@@ -17,26 +18,10 @@ Configurable thresholds for actionable alerts
 
 Easily extendable to support more targets/metrics
 
-Project Structure
-text
-backend/
-├── app/
-│   ├── main.py            # FastAPI server
-│   ├── inference.py       # ML inference logic
-│   ├── config.py          # Feature list & settings
-│   └── schemas.py         # Request/response schemas
-├── models/                # Pretrained model & scaler files
-│   ├── SOH_model.pkl
-│   ├── ...                # Similar for RUL & Thermal
-├── requirements.txt
-├── Dockerfile
-├── .dockerignore
-Setup Instructions
 1. Prerequisites
+   
 Python 3.9 (recommended)
-
 Docker Desktop (optional for containerization, recommended)
-
 
 2. Install Dependencies
 
@@ -51,29 +36,6 @@ Ensure files are named exactly as referenced in config.py.
 
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
-Visit http://localhost:8000/docs for interactive documentation and test requests.
-
-Docker Usage
-
-1. Build Image
-bash
-docker build -t ev-maintenance-api:v1.0 .
-2. Run Container
-bash
-docker run -d -p 8000:8000 --name ev-api ev-maintenance-api:v1.0
-API will be available at http://localhost:8000
-
-3. Stop & Remove
-bash
-docker stop ev-api
-docker rm ev-api
-Testing Your API
-Use /docs (Swagger UI) for interactive testing.
-
-Use tools like Thunder Client (VSCode), Postman, or curl for custom requests.
-
-Example request payloads provided as sample_request.json.
-
 Troubleshooting
 Missing feature error:
 Double-check config.py and the sample_request.json to ensure all expected features are present and correctly ordered.
@@ -87,8 +49,7 @@ Change container host port (-p 9000:8000) if 8000 is busy.
 Dependencies not found:
 Update requirements.txt with any missing packages.
 
-Extending for Frontend & Cloud
-Connect any modern frontend (e.g., React, Lovable/Bolt) to API endpoints.
+
 
 Use Docker for deployment on cloud platforms like AWS/GCP/Render.
 
